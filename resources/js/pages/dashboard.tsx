@@ -22,6 +22,24 @@ export default function Dashboard({ user, role, stats }: DashboardProps) {
 
                 {isAdmin && (
                     <>
+                        {/* Quick Actions */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                            <Link
+                                href="/users"
+                                className="bg-white p-6 rounded-lg shadow-sm border hover:shadow-md transition-shadow"
+                            >
+                                <h3 className="text-lg font-semibold text-gray-700 mb-2">Manage Users</h3>
+                                <p className="text-sm text-gray-500">View and manage all users</p>
+                            </Link>
+                            <Link
+                                href="/roles"
+                                className="bg-white p-6 rounded-lg shadow-sm border hover:shadow-md transition-shadow"
+                            >
+                                <h3 className="text-lg font-semibold text-gray-700 mb-2">Manage Roles</h3>
+                                <p className="text-sm text-gray-500">Create and manage roles and permissions</p>
+                            </Link>
+                        </div>
+
                         {/* Stats Cards */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                             <div className="bg-white p-6 rounded-lg shadow-sm border">
