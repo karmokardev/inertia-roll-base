@@ -21,6 +21,7 @@ const navItemsByRole: Record<string, NavItem[]> = {
         { title: 'Dashboard', href: dashboard(), icon: LayoutGrid },
         { title: 'Users', href: '/users', icon: Users },
         { title: 'Roles', href: '/roles', icon: Shield },
+        { title: 'Permissions', href: '/permissions', icon: CheckCircle },
     ],
 };
 

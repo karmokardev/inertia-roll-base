@@ -81,7 +81,7 @@ loginForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 login.form = loginForm
 
 /**
-* @see routes/web.php:45
+* @see routes/web.php:54
 * @route '/logout'
 */
 export const logout = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -95,7 +95,7 @@ logout.definition = {
 } satisfies RouteDefinition<["post"]>
 
 /**
-* @see routes/web.php:45
+* @see routes/web.php:54
 * @route '/logout'
 */
 logout.url = (options?: RouteQueryOptions) => {
@@ -103,7 +103,7 @@ logout.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see routes/web.php:45
+* @see routes/web.php:54
 * @route '/logout'
 */
 logout.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -112,7 +112,7 @@ logout.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 })
 
 /**
-* @see routes/web.php:45
+* @see routes/web.php:54
 * @route '/logout'
 */
 const logoutForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -121,7 +121,7 @@ const logoutForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> =>
 })
 
 /**
-* @see routes/web.php:45
+* @see routes/web.php:54
 * @route '/logout'
 */
 logoutForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -535,3 +535,84 @@ rolesForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 })
 
 roles.form = rolesForm
+
+/**
+* @see \App\Http\Controllers\Admin\PermissionController::permissions
+* @see app/Http/Controllers/Admin/PermissionController.php:12
+* @route '/permissions'
+*/
+export const permissions = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: permissions.url(options),
+    method: 'get',
+})
+
+permissions.definition = {
+    methods: ["get","head"],
+    url: '/permissions',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\Admin\PermissionController::permissions
+* @see app/Http/Controllers/Admin/PermissionController.php:12
+* @route '/permissions'
+*/
+permissions.url = (options?: RouteQueryOptions) => {
+    return permissions.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Admin\PermissionController::permissions
+* @see app/Http/Controllers/Admin/PermissionController.php:12
+* @route '/permissions'
+*/
+permissions.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: permissions.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\PermissionController::permissions
+* @see app/Http/Controllers/Admin/PermissionController.php:12
+* @route '/permissions'
+*/
+permissions.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: permissions.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\PermissionController::permissions
+* @see app/Http/Controllers/Admin/PermissionController.php:12
+* @route '/permissions'
+*/
+const permissionsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: permissions.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\PermissionController::permissions
+* @see app/Http/Controllers/Admin/PermissionController.php:12
+* @route '/permissions'
+*/
+permissionsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: permissions.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\PermissionController::permissions
+* @see app/Http/Controllers/Admin/PermissionController.php:12
+* @route '/permissions'
+*/
+permissionsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: permissions.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+permissions.form = permissionsForm
