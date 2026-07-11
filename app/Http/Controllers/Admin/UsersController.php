@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
+use Spatie\Permission\Models\Role;
 
 class UsersController extends Controller
 {
@@ -37,9 +38,11 @@ class UsersController extends Controller
     public function edit(User $user)
     {
         $user->load('roles');
+        $roles = Role::all();
 
         return inertia('admin/user/edit', [
             'user' => $user,
+            'roles' => $roles,
         ]);
     }
 
@@ -50,9 +53,15 @@ class UsersController extends Controller
             'email' => ['nullable', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'phone' => ['nullable', 'string', 'max:20', Rule::unique('users')->ignore($user->id)],
             'status' => ['required', 'in:active,inactive,suspended'],
+            'roles' => ['nullable', 'array'],
+            'roles.*' => ['exists:roles,id'],
         ]);
 
         $user->update($validated);
+
+        if (isset($validated['roles'])) {
+            $user->syncRoles($validated['roles']);
+        }
 
         return redirect()->route('users')->with('success', 'User updated successfully');
     }

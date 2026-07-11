@@ -5,14 +5,16 @@ import { toast } from 'sonner';
 
 interface EditUserProps {
     user: User;
+    roles: any[];
 }
 
-export default function EditUser({ user }: EditUserProps) {
+export default function EditUser({ user, roles }: EditUserProps) {
     const { data, setData, put, processing, errors } = useForm({
         username: user.username || '',
         email: user.email || '',
         phone: user.phone || '',
         status: user.status || 'active',
+        roles: user.roles?.map((role: any) => role.id) || [],
     });
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -104,6 +106,34 @@ export default function EditUser({ user }: EditUserProps) {
                                     </select>
                                     {errors.status && (
                                         <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.status}</p>
+                                    )}
+                                </div>
+
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                        Roles
+                                    </label>
+                                    <div className="space-y-2">
+                                        {roles.map((role) => (
+                                            <label key={role.id} className="flex items-center space-x-2 cursor-pointer">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={data.roles.includes(role.id)}
+                                                    onChange={(e) => {
+                                                        if (e.target.checked) {
+                                                            setData('roles', [...data.roles, role.id]);
+                                                        } else {
+                                                            setData('roles', data.roles.filter((id: number) => id !== role.id));
+                                                        }
+                                                    }}
+                                                    className="w-4 h-4 text-blue-600 border-gray-300 dark:border-neutral-700 rounded focus:ring-blue-500 bg-white dark:bg-neutral-800"
+                                                />
+                                                <span className="text-sm text-gray-700 dark:text-gray-300">{role.name}</span>
+                                            </label>
+                                        ))}
+                                    </div>
+                                    {errors.roles && (
+                                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.roles}</p>
                                     )}
                                 </div>
 
