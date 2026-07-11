@@ -21,21 +21,16 @@ class UserSeeder extends Seeder
         $admin->assignRole('admin');
 
         // ======================
-        // 2. OTHER ROLES (10 each)
+        // 2. REGULAR USERS (10 users)
         // ======================
-        $roles = ['member', 'volunteer', 'instructor', 'student'];
+        for ($i = 1; $i <= 10; $i++) {
+            $user = User::factory()->create([
+                'username' => 'User ' . $i,
+                'email' => 'user' . $i . '@gmail.com',
+                'password' => bcrypt('12345678'),
+            ]);
 
-        foreach ($roles as $role) {
-            for ($i = 1; $i <= 10; $i++) {
-
-                $user = User::factory()->create([
-                    'username' => ucfirst($role) . ' ' . $i,
-                    'phone' => '01' . rand(300000000, 999999999),
-                    'password' => bcrypt('12345678'),
-                ]);
-
-                $user->assignRole($role);
-            }
+            $user->assignRole('user');
         }
     }
 }

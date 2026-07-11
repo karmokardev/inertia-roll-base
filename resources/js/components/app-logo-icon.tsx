@@ -1,7 +1,7 @@
 import type { ImgHTMLAttributes } from 'react';
 
 export default function AppLogoIcon(props: ImgHTMLAttributes<HTMLImageElement>) {
-    return <img src="/fabicon.png" alt="App Logo" {...props} />;
+    return <img src="" alt="App Logo" {...props} />;
 }
 
 // import type { SVGAttributes } from 'react';

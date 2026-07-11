@@ -18,11 +18,6 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
         $this->call(RoleSeeder::class);
-        $this->call(MembershipTypeSeeder::class);
-        $this->call(ThanaSeeder::class);
-        $this->call(UnionSeeder::class);
         $this->call(UserSeeder::class);
-        $this->call(PostSeeder::class);
-        $this->call(MembershipRegistrationSeeder::class);
     }
 }

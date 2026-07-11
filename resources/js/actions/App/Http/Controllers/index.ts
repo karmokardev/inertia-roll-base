@@ -1,10 +1,10 @@
-import HomeController from './HomeController'
-import DashboardController from './DashboardController'
+import Frontand from './Frontand'
+import Admin from './Admin'
 import Settings from './Settings'
 
 const Controllers = {
-    HomeController: Object.assign(HomeController, HomeController),
-    DashboardController: Object.assign(DashboardController, DashboardController),
+    Frontand: Object.assign(Frontand, Frontand),
+    Admin: Object.assign(Admin, Admin),
     Settings: Object.assign(Settings, Settings),
 }
 

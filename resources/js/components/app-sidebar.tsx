@@ -19,25 +19,7 @@ import type { NavItem } from '@/types';
 const navItemsByRole: Record<string, NavItem[]> = {
     admin: [
         { title: 'Dashboard', href: dashboard(), icon: LayoutGrid },
-        { title: 'Membership Approvals', href: '/admin/memberships', icon: CheckCircle },
         { title: 'Users', href: '/users', icon: Users },
-        { title: 'Posts', href: '/posts', icon: PenSquare },
-    ],
-    member: [
-        { title: 'Dashboard', href: dashboard(), icon: LayoutGrid },
-    ],
-    instructor: [
-        { title: 'Dashboard', href: dashboard(), icon: LayoutGrid },
-        { title: 'Courses', href: '/courses', icon: BookOpen },
-        { title: 'Students', href: '/students', icon: GraduationCap },
-    ],
-    volunteer: [
-        { title: 'Dashboard', href: dashboard(), icon: LayoutGrid },
-        { title: 'Activities', href: '/activities', icon: Heart },
-    ],
-    student: [
-        { title: 'Dashboard', href: dashboard(), icon: LayoutGrid },
-        { title: 'Courses', href: '/courses', icon: BookOpen },
     ],
 };
 

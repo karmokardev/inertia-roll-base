@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,22 +20,12 @@ class DashboardController extends Controller
                 'users' => User::with('roles')->get(),
                 'stats' => [
                     'admin' => User::role('admin')->count(),
-                    'member' => User::role('member')->count(),
-                    'volunteer' => User::role('volunteer')->count(),
-                    'instructor' => User::role('instructor')->count(),
-                    'student' => User::role('student')->count(),
+                    'user' => User::role('user')->count(),
                 ]
             ]);
         }
 
-        if ($user->hasRole('member')) {
-            return inertia('dashboard', [
-                'user' => $user,
-                'role' => 'member',
-            ]);
-        }
-
-        // Default for other roles
+        // Default for regular users
         return inertia('dashboard', [
             'user' => $user,
             'role' => 'user',
