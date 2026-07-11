@@ -81,7 +81,7 @@ loginForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 login.form = loginForm
 
 /**
-* @see routes/web.php:26
+* @see routes/web.php:36
 * @route '/logout'
 */
 export const logout = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -95,7 +95,7 @@ logout.definition = {
 } satisfies RouteDefinition<["post"]>
 
 /**
-* @see routes/web.php:26
+* @see routes/web.php:36
 * @route '/logout'
 */
 logout.url = (options?: RouteQueryOptions) => {
@@ -103,7 +103,7 @@ logout.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see routes/web.php:26
+* @see routes/web.php:36
 * @route '/logout'
 */
 logout.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -112,7 +112,7 @@ logout.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 })
 
 /**
-* @see routes/web.php:26
+* @see routes/web.php:36
 * @route '/logout'
 */
 const logoutForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -121,7 +121,7 @@ const logoutForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> =>
 })
 
 /**
-* @see routes/web.php:26
+* @see routes/web.php:36
 * @route '/logout'
 */
 logoutForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -373,3 +373,84 @@ dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 })
 
 dashboard.form = dashboardForm
+
+/**
+* @see \App\Http\Controllers\Admin\UsersController::users
+* @see app/Http/Controllers/Admin/UsersController.php:13
+* @route '/users'
+*/
+export const users = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: users.url(options),
+    method: 'get',
+})
+
+users.definition = {
+    methods: ["get","head"],
+    url: '/users',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\Admin\UsersController::users
+* @see app/Http/Controllers/Admin/UsersController.php:13
+* @route '/users'
+*/
+users.url = (options?: RouteQueryOptions) => {
+    return users.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Admin\UsersController::users
+* @see app/Http/Controllers/Admin/UsersController.php:13
+* @route '/users'
+*/
+users.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: users.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\UsersController::users
+* @see app/Http/Controllers/Admin/UsersController.php:13
+* @route '/users'
+*/
+users.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: users.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\UsersController::users
+* @see app/Http/Controllers/Admin/UsersController.php:13
+* @route '/users'
+*/
+const usersForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: users.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\UsersController::users
+* @see app/Http/Controllers/Admin/UsersController.php:13
+* @route '/users'
+*/
+usersForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: users.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\UsersController::users
+* @see app/Http/Controllers/Admin/UsersController.php:13
+* @route '/users'
+*/
+usersForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: users.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+users.form = usersForm

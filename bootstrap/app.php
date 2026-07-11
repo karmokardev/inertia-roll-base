@@ -26,8 +26,8 @@ return Application::configure(basePath: dirname(__DIR__))
             AddLinkHeadersForPreloadedAssets::class,
         ]);
         $middleware->alias([
-            // 'admin'=>IsAdmin::class,
-            'role' =>RoleMiddleware::class,
+            'admin' => IsAdmin::class,
+            'role' => RoleMiddleware::class,
             'permission' => PermissionMiddleware::class,
         ]);
     })

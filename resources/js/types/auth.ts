@@ -2,11 +2,15 @@ export type User = {
     id: number;
     username: string;
     email: string;
+    name?: string;
+    phone?: string;
+    status?: string;
     avatar?: string;
     email_verified_at: string | null;
     two_factor_enabled?: boolean;
     created_at: string;
     updated_at: string;
+    roles?: Array<{ name: string }>;
     [key: string]: unknown;
 };
 
