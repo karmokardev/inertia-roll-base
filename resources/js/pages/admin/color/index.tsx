@@ -18,12 +18,12 @@ interface ColorProps {
 
 export default function ColorIndex({ colors, presetColors }: ColorProps) {
     const { data, setData, put, processing, errors } = useForm({
-        primary_color: colors.primary_color || '#3b82f6',
-        secondary_color: colors.secondary_color || '#10b981',
+        primary_color: colors.primary_color || '#10b981',
+        secondary_color: colors.secondary_color || '#d946ef',
     });
 
     const [newColorName, setNewColorName] = useState('');
-    const [newColorValue, setNewColorValue] = useState('#3b82f6');
+    const [newColorValue, setNewColorValue] = useState('#10b981');
     const [isAddingColor, setIsAddingColor] = useState(false);
 
     const handleAddPresetColor = (e: React.FormEvent) => {

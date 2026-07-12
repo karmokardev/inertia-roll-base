@@ -35,6 +35,8 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
+        $colors = \App\Models\Color::first();
+
         return [
             ...parent::share($request),
             'name' => config('app.name'),
@@ -42,6 +44,21 @@ class HandleInertiaRequests extends Middleware
                 'user' => $request->user(),
             ],
             'sidebarOpen' => ! $request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
+            'colors' => [
+                'primary' => $colors?->primary_color ?? '#10b981',
+                'secondary' => $colors?->secondary_color ?? '#d946ef',
+            ],
         ];
+    }
+
+    public function rootView(Request $request): string
+    {
+        $colors = \App\Models\Color::first();
+        \Illuminate\Support\Facades\View::share('colors', [
+            'primary' => $colors?->primary_color ?? '#10b981',
+            'secondary' => $colors?->secondary_color ?? '#d946ef',
+        ]);
+
+        return parent::rootView($request);
     }
 }

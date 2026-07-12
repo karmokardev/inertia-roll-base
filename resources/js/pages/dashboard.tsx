@@ -48,7 +48,7 @@ export default function Dashboard({ user, role, stats }: DashboardProps) {
                             </div>
                             <div className="bg-white p-6 rounded-lg shadow-sm border">
                                 <h3 className="text-lg font-semibold text-gray-700">Total Users</h3>
-                                <p className="text-3xl font-bold text-green-600">{stats?.user || 0}</p>
+                                <p className="text-3xl font-bold text-primary">{stats?.user || 0}</p>
                             </div>
                         </div>
                     </>

@@ -64,7 +64,7 @@ export default function About() {
                         <h1 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3 leading-snug">
                             About Us
                         </h1>
-                        <span className="inline-block text-xs font-medium text-green-700 bg-green-50 border border-green-200 rounded-full px-3 py-1 mb-4">
+                        <span className="inline-block text-xs font-medium text-primary bg-primary/10 border border-primary/30 rounded-full px-3 py-1 mb-4">
                             Non-profit · Non-political · Public welfare
                         </span>
                         <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
@@ -126,7 +126,7 @@ export default function About() {
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <div className="bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-xl p-5">
-                        <Eye size={20} className="text-green-700 mb-3" />
+                        <Eye size={20} className="text-primary mb-3" />
                         <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-2">Our vision</h3>
                         <p className="text-[13px] text-gray-500 dark:text-gray-400 leading-relaxed">
                             To build a safe, efficient and responsible road transport system in Bangladesh
@@ -135,7 +135,7 @@ export default function About() {
                         </p>
                     </div>
                     <div className="bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-xl p-5">
-                        <Target size={20} className="text-green-700 mb-3" />
+                        <Target size={20} className="text-primary mb-3" />
                         <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-2">Our mission</h3>
                         <p className="text-[13px] text-gray-500 dark:text-gray-400 leading-relaxed">
                             To ensure safe training, increase awareness, develop skilled instructors,
@@ -156,7 +156,7 @@ export default function About() {
                             className={`flex items-start gap-2.5 py-2.5 ${i !== missions.length - 1 ? 'border-b border-gray-200 dark:border-neutral-700' : ''
                                 }`}
                         >
-                            <span className="mt-[6px] w-1.5 h-1.5 rounded-full bg-green-600 flex-shrink-0" />
+                            <span className="mt-[6px] w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
                             <span className="text-[13px] text-gray-600 dark:text-gray-300 leading-snug">{m}</span>
                         </div>
                     ))}
@@ -172,10 +172,10 @@ export default function About() {
                     {values.map(({ label, Icon }) => (
                         <div
                             key={label}
-                            className="flex flex-col items-center bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl py-3 px-2"
+                            className="flex flex-col items-center bg-primary/10 dark:bg-primary/20 border border-primary/30 dark:border-primary/40 rounded-xl py-3 px-2"
                         >
-                            <Icon size={18} className="text-green-700 mb-1.5" />
-                            <span className="text-[11px] font-medium text-green-800 dark:text-green-300 text-center leading-tight">
+                            <Icon size={18} className="text-primary mb-1.5" />
+                            <span className="text-[11px] font-medium text-primary dark:text-primary-foreground text-center leading-tight">
                                 {label}
                             </span>
                         </div>
@@ -183,8 +183,8 @@ export default function About() {
                 </div>
 
                 {/* Motto */}
-                <div className="rounded-xl border border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20 px-6 py-5 text-center">
-                    <p className="text-base font-medium text-green-700 dark:text-green-400 italic">
+                <div className="rounded-xl border border-primary/30 dark:border-primary/40 bg-primary/10 dark:bg-primary/20 px-6 py-5 text-center">
+                    <p className="text-base font-medium text-primary dark:text-primary-foreground italic">
                         "Skilled Drivers, Safe Roads, Prosperous Bangladesh."
                     </p>
                 </div>

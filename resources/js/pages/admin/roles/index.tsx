@@ -94,7 +94,7 @@ export default function Roles({ roles, permissions, filters }: RolesProps) {
                         </form>
                         <button
                             onClick={() => router.get('/roles/create')}
-                            className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                            className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
                         >
                             <FaPlus className="w-4 h-4" />
                             Create Role

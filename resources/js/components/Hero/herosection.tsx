@@ -36,7 +36,7 @@ const HeroSection: React.FC = () => {
         <div className="text-center max-w-5xl mx-auto">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-8 animate-[fadeInDown_0.8s_ease-out]">
-            <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: '#299345' }} />
+            <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: 'var(--primary)' }} />
             <span className="text-sm font-medium text-white/90">
               National Security Initiative
             </span>
@@ -48,10 +48,10 @@ const HeroSection: React.FC = () => {
               <span>
                 Nexus Driving Education and{' '}
                 <span className="relative inline-block">
-                  <span className="relative z-10 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #299345, #97c93c)' }}>
+                  <span className="relative z-10 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, var(--primary), var(--secondary))' }}>
                     Road
                   </span>
-                  <span className="absolute inset-0 blur-xl opacity-50" style={{ backgroundImage: 'linear-gradient(to right, #299345, #97c93c)' }} />
+                  <span className="absolute inset-0 blur-xl opacity-50" style={{ backgroundImage: 'linear-gradient(to right, var(--primary), var(--secondary))' }} />
                 </span>
               </span>
               <span>Safety Organization</span>
@@ -65,7 +65,7 @@ const HeroSection: React.FC = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-[fadeInUp_0.8s_ease-out_0.6s_both]">
-            <Link href="/membership/register" className="group w-full sm:w-auto px-8 py-4 text-white rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transform hover:-translate-y-1" style={{ background: 'linear-gradient(to right, #299345, #97c93c)' }}>
+            <Link href="/membership/register" className="group w-full sm:w-auto px-8 py-4 text-white rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transform hover:-translate-y-1" style={{ background: 'linear-gradient(to right, var(--primary), var(--secondary))' }}>
               <svg className="w-5 h-5 group-hover:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
               </svg>

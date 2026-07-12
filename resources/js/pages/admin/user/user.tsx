@@ -126,7 +126,7 @@ export default function Users({ users, filters }: UsersProps) {
                                                     value={userItem.status || 'active'}
                                                     onChange={(e) => handleStatusChange(userItem.id, e.target.value)}
                                                     className={`px-2 py-1 rounded-full text-xs font-medium border-0 cursor-pointer ${
-                                                        userItem.status === 'active' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' :
+                                                        userItem.status === 'active' ? 'bg-primary/20 text-primary dark:bg-primary/30 dark:text-primary-foreground' :
                                                         userItem.status === 'inactive' ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200' :
                                                         'bg-gray-100 text-gray-800 dark:bg-neutral-700 dark:text-neutral-300'
                                                     }`}

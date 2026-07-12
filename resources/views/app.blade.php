@@ -28,6 +28,23 @@
             html.dark {
                 background-color: oklch(0.145 0 0);
             }
+
+            :root {
+                --primary: {{ $colors['primary'] ?? '#10b981' }};
+                --primary-foreground: #ffffff;
+                --ring: {{ $colors['primary'] ?? '#10b981' }};
+                --sidebar-primary: {{ $colors['primary'] ?? '#10b981' }};
+                --sidebar-primary-foreground: #ffffff;
+                --sidebar-ring: {{ $colors['primary'] ?? '#10b981' }};
+                --chart-1: {{ $colors['primary'] ?? '#10b981' }};
+                --chart-4: {{ $colors['primary'] ?? '#10b981' }};
+                --secondary: {{ $colors['secondary'] ?? '#d946ef' }};
+                --secondary-foreground: #111111;
+                --accent: {{ $colors['secondary'] ?? '#d946ef' }};
+                --accent-foreground: #111111;
+                --chart-2: {{ $colors['secondary'] ?? '#d946ef' }};
+                --chart-5: {{ $colors['secondary'] ?? '#d946ef' }};
+            }
         </style>
 
         <link rel="icon" href="/favicon.ico" sizes="any">

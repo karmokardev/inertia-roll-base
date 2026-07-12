@@ -12,8 +12,8 @@ class ColorsController extends Controller
     public function index()
     {
         $colors = Color::firstOrCreate([], [
-            'primary_color' => '#3b82f6',
-            'secondary_color' => '#10b981',
+            'primary_color' => '#10b981',
+            'secondary_color' => '#d946ef',
         ]);
 
         $presetColors = PresetColor::orderBy('sort_order')

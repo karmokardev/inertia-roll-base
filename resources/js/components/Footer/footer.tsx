@@ -90,7 +90,7 @@ const Footer: React.FC<FooterProps> = ({
             <div
                 style={{
                     height: '3px',
-                    background: 'linear-gradient(90deg, transparent 0%, #299345 30%, #97c93c 60%, transparent 100%)',
+                    background: 'linear-gradient(90deg, transparent 0%, var(--primary) 30%, var(--secondary) 60%, transparent 100%)',
                 }}
             />
 
@@ -99,7 +99,8 @@ const Footer: React.FC<FooterProps> = ({
                 className="absolute inset-0 pointer-events-none"
                 style={{
                     backgroundImage:
-                        'radial-gradient(ellipse 60% 40% at 80% 20%, rgba(41,147,69,0.1) 0%, transparent 60%)',
+                        'radial-gradient(ellipse 60% 40% at 80% 20%, var(--primary) 0%, transparent 60%)',
+                    opacity: '0.1'
                 }}
             />
 

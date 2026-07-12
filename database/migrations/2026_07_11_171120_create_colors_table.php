@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('colors', function (Blueprint $table) {
             $table->id();
-            $table->string('primary_color')->default('#3b82f6');
-            $table->string('secondary_color')->default('#10b981');
+            $table->string('primary_color')->default('#10b981');
+            $table->string('secondary_color')->default('#d946ef');
             $table->timestamps();
         });
     }
