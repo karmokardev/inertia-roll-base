@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\ColorsController;
 use App\Http\Controllers\Admin\PresetColorController;
+use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\SiteSettingsController;
 use App\Http\Controllers\Frontand\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\MembershipController;
@@ -53,6 +55,17 @@ Route::middleware(['auth'])->group(function () {
         // preset colors - admin only
         Route::post('/preset-colors', [PresetColorController::class, 'store'])->name('preset-colors.store');
         Route::delete('/preset-colors/{presetColor}', [PresetColorController::class, 'destroy'])->name('preset-colors.destroy');
+
+        // settings - admin only
+        Route::get('/admin/settings/general', [SiteSettingsController::class, 'index'])->name('admin.settings.general');
+        Route::post('/admin/settings/general', [SiteSettingsController::class, 'store'])->name('admin.settings.general.store');
+        Route::put('/admin/settings/general/{key}', [SiteSettingsController::class, 'update'])->name('admin.settings.general.update');
+        Route::delete('/admin/settings/general/{key}', [SiteSettingsController::class, 'destroy'])->name('admin.settings.general.destroy');
+
+        Route::get('/admin/settings/logo-favicon', [SettingController::class, 'index'])->name('admin.settings.logo-favicon');
+        Route::post('/admin/settings/logo-favicon', [SettingController::class, 'update'])->name('admin.settings.logo-favicon.update');
+        Route::post('/admin/settings/logo-favicon/{key}', [SettingController::class, 'updateSetting'])->name('admin.settings.logo-favicon.update.setting');
+        Route::delete('/admin/settings/logo-favicon/{key}', [SettingController::class, 'destroy'])->name('admin.settings.logo-favicon.destroy');
     });
 
 });

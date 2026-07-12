@@ -48,6 +48,12 @@ class HandleInertiaRequests extends Middleware
                 'primary' => $colors?->primary_color ?? '#10b981',
                 'secondary' => $colors?->secondary_color ?? '#d946ef',
             ],
+            'settings' => [
+                'logo' => \App\Models\Setting::get('logo', '/fabicon.png'),
+                'favicon' => \App\Models\Setting::get('favicon', '/favicon.ico'),
+                'favicon_svg' => \App\Models\Setting::get('favicon_svg', '/favicon.svg'),
+                'apple_touch_icon' => \App\Models\Setting::get('apple_touch_icon', '/apple-touch-icon.png'),
+            ],
         ];
     }
 
@@ -57,6 +63,13 @@ class HandleInertiaRequests extends Middleware
         \Illuminate\Support\Facades\View::share('colors', [
             'primary' => $colors?->primary_color ?? '#10b981',
             'secondary' => $colors?->secondary_color ?? '#d946ef',
+        ]);
+
+        \Illuminate\Support\Facades\View::share('settings', [
+            'logo' => \App\Models\Setting::get('logo', '/fabicon.png'),
+            'favicon' => \App\Models\Setting::get('favicon', '/favicon.ico'),
+            'favicon_svg' => \App\Models\Setting::get('favicon_svg', '/favicon.svg'),
+            'apple_touch_icon' => \App\Models\Setting::get('apple_touch_icon', '/apple-touch-icon.png'),
         ]);
 
         return parent::rootView($request);
