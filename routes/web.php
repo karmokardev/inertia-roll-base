@@ -4,6 +4,8 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\ColorsController;
+use App\Http\Controllers\Admin\PresetColorController;
 use App\Http\Controllers\Frontand\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\MembershipController;
@@ -43,6 +45,14 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/permissions/{permission}/edit', [PermissionController::class, 'edit'])->name('permissions.edit');
         Route::put('/permissions/{permission}', [PermissionController::class, 'update'])->name('permissions.update');
         Route::delete('/permissions/{permission}', [PermissionController::class, 'destroy'])->name('permissions.destroy');
+
+        // colors - admin only
+        Route::get('/colors', [ColorsController::class, 'index'])->name('colors');
+        Route::put('/colors', [ColorsController::class, 'update'])->name('colors.update');
+        
+        // preset colors - admin only
+        Route::post('/preset-colors', [PresetColorController::class, 'store'])->name('preset-colors.store');
+        Route::delete('/preset-colors/{presetColor}', [PresetColorController::class, 'destroy'])->name('preset-colors.destroy');
     });
 
 });

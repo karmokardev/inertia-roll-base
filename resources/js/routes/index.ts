@@ -81,7 +81,7 @@ loginForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 login.form = loginForm
 
 /**
-* @see routes/web.php:54
+* @see routes/web.php:64
 * @route '/logout'
 */
 export const logout = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -95,7 +95,7 @@ logout.definition = {
 } satisfies RouteDefinition<["post"]>
 
 /**
-* @see routes/web.php:54
+* @see routes/web.php:64
 * @route '/logout'
 */
 logout.url = (options?: RouteQueryOptions) => {
@@ -103,7 +103,7 @@ logout.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see routes/web.php:54
+* @see routes/web.php:64
 * @route '/logout'
 */
 logout.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -112,7 +112,7 @@ logout.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 })
 
 /**
-* @see routes/web.php:54
+* @see routes/web.php:64
 * @route '/logout'
 */
 const logoutForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -121,7 +121,7 @@ const logoutForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> =>
 })
 
 /**
-* @see routes/web.php:54
+* @see routes/web.php:64
 * @route '/logout'
 */
 logoutForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -616,3 +616,84 @@ permissionsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'>
 })
 
 permissions.form = permissionsForm
+
+/**
+* @see \App\Http\Controllers\Admin\ColorsController::colors
+* @see app/Http/Controllers/Admin/ColorsController.php:12
+* @route '/colors'
+*/
+export const colors = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: colors.url(options),
+    method: 'get',
+})
+
+colors.definition = {
+    methods: ["get","head"],
+    url: '/colors',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\Admin\ColorsController::colors
+* @see app/Http/Controllers/Admin/ColorsController.php:12
+* @route '/colors'
+*/
+colors.url = (options?: RouteQueryOptions) => {
+    return colors.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Admin\ColorsController::colors
+* @see app/Http/Controllers/Admin/ColorsController.php:12
+* @route '/colors'
+*/
+colors.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: colors.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\ColorsController::colors
+* @see app/Http/Controllers/Admin/ColorsController.php:12
+* @route '/colors'
+*/
+colors.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: colors.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\ColorsController::colors
+* @see app/Http/Controllers/Admin/ColorsController.php:12
+* @route '/colors'
+*/
+const colorsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: colors.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\ColorsController::colors
+* @see app/Http/Controllers/Admin/ColorsController.php:12
+* @route '/colors'
+*/
+colorsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: colors.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\ColorsController::colors
+* @see app/Http/Controllers/Admin/ColorsController.php:12
+* @route '/colors'
+*/
+colorsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: colors.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+colors.form = colorsForm
