@@ -1,4 +1,4 @@
-# Nexusdif
+# role basee admin
 
 A modern Laravel + React + Inertia.js application with comprehensive admin panel features, including user management, role-based access control, typography settings, and site configuration.
 
