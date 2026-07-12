@@ -66,6 +66,9 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/admin/settings/logo-favicon', [SettingController::class, 'update'])->name('admin.settings.logo-favicon.update');
         Route::post('/admin/settings/logo-favicon/{key}', [SettingController::class, 'updateSetting'])->name('admin.settings.logo-favicon.update.setting');
         Route::delete('/admin/settings/logo-favicon/{key}', [SettingController::class, 'destroy'])->name('admin.settings.logo-favicon.destroy');
+
+        Route::get('/admin/settings/typography', [SiteSettingsController::class, 'typography'])->name('admin.settings.typography');
+        Route::post('/admin/settings/typography', [SiteSettingsController::class, 'updateTypography'])->name('admin.settings.typography.update');
     });
 
 });

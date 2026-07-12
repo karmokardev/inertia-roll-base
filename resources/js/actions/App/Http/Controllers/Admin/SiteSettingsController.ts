@@ -304,6 +304,143 @@ destroyForm.delete = (args: { key: string | number } | [key: string | number ] |
 
 destroy.form = destroyForm
 
-const SiteSettingsController = { index, store, update, destroy }
+/**
+* @see \App\Http\Controllers\Admin\SiteSettingsController::typography
+* @see app/Http/Controllers/Admin/SiteSettingsController.php:118
+* @route '/admin/settings/typography'
+*/
+export const typography = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: typography.url(options),
+    method: 'get',
+})
+
+typography.definition = {
+    methods: ["get","head"],
+    url: '/admin/settings/typography',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\Admin\SiteSettingsController::typography
+* @see app/Http/Controllers/Admin/SiteSettingsController.php:118
+* @route '/admin/settings/typography'
+*/
+typography.url = (options?: RouteQueryOptions) => {
+    return typography.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Admin\SiteSettingsController::typography
+* @see app/Http/Controllers/Admin/SiteSettingsController.php:118
+* @route '/admin/settings/typography'
+*/
+typography.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: typography.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\SiteSettingsController::typography
+* @see app/Http/Controllers/Admin/SiteSettingsController.php:118
+* @route '/admin/settings/typography'
+*/
+typography.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: typography.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\SiteSettingsController::typography
+* @see app/Http/Controllers/Admin/SiteSettingsController.php:118
+* @route '/admin/settings/typography'
+*/
+const typographyForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: typography.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\SiteSettingsController::typography
+* @see app/Http/Controllers/Admin/SiteSettingsController.php:118
+* @route '/admin/settings/typography'
+*/
+typographyForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: typography.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\SiteSettingsController::typography
+* @see app/Http/Controllers/Admin/SiteSettingsController.php:118
+* @route '/admin/settings/typography'
+*/
+typographyForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: typography.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+typography.form = typographyForm
+
+/**
+* @see \App\Http\Controllers\Admin\SiteSettingsController::updateTypography
+* @see app/Http/Controllers/Admin/SiteSettingsController.php:150
+* @route '/admin/settings/typography'
+*/
+export const updateTypography = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: updateTypography.url(options),
+    method: 'post',
+})
+
+updateTypography.definition = {
+    methods: ["post"],
+    url: '/admin/settings/typography',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Http\Controllers\Admin\SiteSettingsController::updateTypography
+* @see app/Http/Controllers/Admin/SiteSettingsController.php:150
+* @route '/admin/settings/typography'
+*/
+updateTypography.url = (options?: RouteQueryOptions) => {
+    return updateTypography.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Admin\SiteSettingsController::updateTypography
+* @see app/Http/Controllers/Admin/SiteSettingsController.php:150
+* @route '/admin/settings/typography'
+*/
+updateTypography.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: updateTypography.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\SiteSettingsController::updateTypography
+* @see app/Http/Controllers/Admin/SiteSettingsController.php:150
+* @route '/admin/settings/typography'
+*/
+const updateTypographyForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: updateTypography.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\SiteSettingsController::updateTypography
+* @see app/Http/Controllers/Admin/SiteSettingsController.php:150
+* @route '/admin/settings/typography'
+*/
+updateTypographyForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: updateTypography.url(options),
+    method: 'post',
+})
+
+updateTypography.form = updateTypographyForm
+
+const SiteSettingsController = { index, store, update, destroy, typography, updateTypography }
 
 export default SiteSettingsController

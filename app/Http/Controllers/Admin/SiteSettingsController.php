@@ -111,4 +111,71 @@ class SiteSettingsController extends Controller
             }
         }
     }
+
+    /**
+     * Display typography settings
+     */
+    public function typography()
+    {
+        $defaultSettings = [
+            'bangla' => [
+                'font_family' => "'Hind Siliguri', sans-serif",
+                'font_size' => '16px',
+                'font_weight' => '400',
+                'color' => '#1a1a1a',
+                'line_height' => '1.6',
+                'letter_spacing' => '0px',
+            ],
+            'english' => [
+                'font_family' => "'Inter', sans-serif",
+                'font_size' => '16px',
+                'font_weight' => '400',
+                'color' => '#333333',
+                'line_height' => '1.5',
+                'letter_spacing' => '0px',
+            ],
+        ];
+
+        $savedSettings = Setting::where('key', 'typography_settings')->first();
+        $settings = $savedSettings ? json_decode($savedSettings->value, true) : $defaultSettings;
+        
+        return inertia('admin/settings/typography/index', [
+            'settings' => $settings,
+        ]);
+    }
+
+    /**
+     * Update typography settings
+     */
+    public function updateTypography(Request $request)
+    {
+        $validated = $request->validate([
+            'font_settings' => 'required|array',
+            'font_settings.bangla' => 'required|array',
+            'font_settings.bangla.font_family' => 'required|string',
+            'font_settings.bangla.font_size' => 'required|string',
+            'font_settings.bangla.font_weight' => 'required|string',
+            'font_settings.bangla.color' => 'required|string',
+            'font_settings.bangla.line_height' => 'required|string',
+            'font_settings.bangla.letter_spacing' => 'required|string',
+            'font_settings.english' => 'required|array',
+            'font_settings.english.font_family' => 'required|string',
+            'font_settings.english.font_size' => 'required|string',
+            'font_settings.english.font_weight' => 'required|string',
+            'font_settings.english.color' => 'required|string',
+            'font_settings.english.line_height' => 'required|string',
+            'font_settings.english.letter_spacing' => 'required|string',
+        ]);
+
+        Setting::updateOrCreate(
+            ['key' => 'typography_settings'],
+            [
+                'value' => json_encode($validated['font_settings']),
+                'type' => 'json',
+                'status' => 'active',
+            ]
+        );
+
+        return back()->with('success', 'Typography settings updated successfully.');
+    }
 }

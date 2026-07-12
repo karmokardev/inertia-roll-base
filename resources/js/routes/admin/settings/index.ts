@@ -1,6 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../wayfinder'
 import general5d934c from './general'
 import logoFavicon8e0c49 from './logo-favicon'
+import typographyB4beaf from './typography'
 /**
 * @see \App\Http\Controllers\Admin\SiteSettingsController::general
 * @see app/Http/Controllers/Admin/SiteSettingsController.php:15
@@ -163,9 +164,91 @@ logoFaviconForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'>
 
 logoFavicon.form = logoFaviconForm
 
+/**
+* @see \App\Http\Controllers\Admin\SiteSettingsController::typography
+* @see app/Http/Controllers/Admin/SiteSettingsController.php:118
+* @route '/admin/settings/typography'
+*/
+export const typography = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: typography.url(options),
+    method: 'get',
+})
+
+typography.definition = {
+    methods: ["get","head"],
+    url: '/admin/settings/typography',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\Admin\SiteSettingsController::typography
+* @see app/Http/Controllers/Admin/SiteSettingsController.php:118
+* @route '/admin/settings/typography'
+*/
+typography.url = (options?: RouteQueryOptions) => {
+    return typography.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Admin\SiteSettingsController::typography
+* @see app/Http/Controllers/Admin/SiteSettingsController.php:118
+* @route '/admin/settings/typography'
+*/
+typography.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: typography.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\SiteSettingsController::typography
+* @see app/Http/Controllers/Admin/SiteSettingsController.php:118
+* @route '/admin/settings/typography'
+*/
+typography.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: typography.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\SiteSettingsController::typography
+* @see app/Http/Controllers/Admin/SiteSettingsController.php:118
+* @route '/admin/settings/typography'
+*/
+const typographyForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: typography.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\SiteSettingsController::typography
+* @see app/Http/Controllers/Admin/SiteSettingsController.php:118
+* @route '/admin/settings/typography'
+*/
+typographyForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: typography.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\SiteSettingsController::typography
+* @see app/Http/Controllers/Admin/SiteSettingsController.php:118
+* @route '/admin/settings/typography'
+*/
+typographyForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: typography.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+typography.form = typographyForm
+
 const settings = {
     general: Object.assign(general, general5d934c),
     logoFavicon: Object.assign(logoFavicon, logoFavicon8e0c49),
+    typography: Object.assign(typography, typographyB4beaf),
 }
 
 export default settings

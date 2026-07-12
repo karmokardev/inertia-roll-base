@@ -1,5 +1,5 @@
 import { Link, usePage } from '@inertiajs/react';
-import { LayoutGrid, Users, Shield, PenSquare, BookOpen, GraduationCap, Heart, CheckCircle, Palette, Settings } from 'lucide-react';
+import { LayoutGrid, Users, Shield, PenSquare, BookOpen, GraduationCap, Heart, CheckCircle, Palette, Settings, Type } from 'lucide-react';
 import AppLogo from '@/components/app-logo';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
@@ -29,6 +29,7 @@ const navItemsByRole: Record<string, NavItem[]> = {
             items: [
                 { title: 'General Settings', href: '/admin/settings/general', icon: LayoutGrid },
                 { title: 'Logo & Favicon', href: '/admin/settings/logo-favicon', icon: Palette },
+                { title: 'Typography', href: '/admin/settings/typography', icon: Type },
             ]
         },
     ],
